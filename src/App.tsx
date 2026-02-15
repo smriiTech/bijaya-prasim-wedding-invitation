@@ -2,6 +2,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Envelope from "./components/Envelope";
 import "./App.css";
+import bgImage from "./assets/download17.jpeg";
+
 
 const App: React.FC = () => {
   const [opened, setOpened] = useState<boolean>(false);
@@ -24,7 +26,7 @@ const App: React.FC = () => {
             }}
             className="min-h-screen w-full relative flex flex-col items-center justify-center p-4"
             style={{
-              backgroundImage: "url(download17.jpeg)",
+              backgroundImage: `url(${bgImage})`,
               backgroundSize: "100% auto",
               backgroundPosition: "center center",
               backgroundRepeat: "no-repeat",
