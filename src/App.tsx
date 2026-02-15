@@ -24,7 +24,7 @@ const App: React.FC = () => {
             }}
             className="min-h-screen w-full relative flex flex-col items-center justify-center p-4"
             style={{
-              backgroundImage: "url(/download17.jpeg)",
+              backgroundImage: "url(download17.jpeg)",
               backgroundSize: "100% auto",
               backgroundPosition: "center center",
               backgroundRepeat: "no-repeat",
