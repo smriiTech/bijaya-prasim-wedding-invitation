@@ -37,7 +37,6 @@ const App: React.FC = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
 
-
   return (
     <>
       <AnimatePresence mode="wait">
@@ -299,13 +298,40 @@ const App: React.FC = () => {
                             )}
                           </div>
                         );
-
                       })}
                     </div>
                   </div>
                 </div>
               </div>
             </motion.section>
+
+            {/* Footer */}
+            <footer
+              className="py-12 text-center"
+              style={{ background: "hsl(var(--ivory-dark))" }}
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <Heart
+                  className="w-5 h-5 mx-auto mb-4 text-accent"
+                  fill="#F01B00"
+                  stroke="none"
+                  strokeWidth={0}
+                />
+                <p className="font-display text-xl text-primary font-basic">
+                  Bijaya & Prasim
+                </p>
+                <p className="font-body text-sm text-muted-foreground mt-2 font-basic">
+                  February 25, 2026 · Nadipur, Pokhara
+                </p>
+                <p className="font-sans text-xs uppercase tracking-[0.2em] text-muted-foreground mt-6">
+                  Made with love
+                </p>
+              </motion.div>
+            </footer>
           </>
         )}
       </AnimatePresence>
