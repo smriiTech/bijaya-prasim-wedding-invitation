@@ -137,7 +137,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             transition={{ duration: 0.4 }}
           >
             <span className="text-[#6b2c2c] text-xl tracking-wider font-script font-bold">
-              BJ
+              BP
             </span>
           </motion.div>
         </motion.div>
