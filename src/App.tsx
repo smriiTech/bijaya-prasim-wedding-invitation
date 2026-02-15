@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Envelope from "./components/Envelope";
 import Countdown from "./components/Countdown";
-import { Heart } from "lucide-react";
+import DressCode from "./components/DressCode";
+import { Heart, MapPin, Clock, Calendar } from "lucide-react";
 
 import Confetti from "react-confetti";
 
@@ -304,6 +305,91 @@ const App: React.FC = () => {
                 </div>
               </div>
             </motion.section>
+
+            {/* Venue Section */}
+            <motion.section
+              className="w-full bg-[#f9f3ec] py-14 sm:py-16 md:py-20 px-4 sm:px-6 relative overflow-hidden"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="max-w-5xl mx-auto text-center">
+                {/* Heading */}
+                <motion.div
+                  className="mb-10 sm:mb-14"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-4 text-[#6b2c2c]" />
+
+                  <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-xs sm:text-sm text-[#7b2e2e] mb-3">
+                    The Celebration
+                  </p>
+
+                  <h2 className="font-script text-[36px] sm:text-[55px] md:text-[75px] lg:text-[90px] text-[#6b2c2c] leading-tight">
+                    The Venue
+                  </h2>
+
+                  <div className="w-16 sm:w-24 h-px bg-[#c6a96d] mx-auto mt-5 sm:mt-6" />
+                </motion.div>
+
+                {/* Venue Info */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                >
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-[#6b2c2c] mb-3">
+                    Thakali Samaj Ghar
+                  </h3>
+
+                  <p className="text-base sm:text-lg text-[#7b2e2e] mb-8 sm:mb-10">
+                    Nadipur, 3 — Pokhara, Nepal
+                  </p>
+
+                  {/* Details Row */}
+                  <div
+                    className="
+        flex 
+        flex-col 
+        sm:flex-row 
+        flex-wrap 
+        items-center 
+        justify-center 
+        gap-6 sm:gap-10 md:gap-14 
+        font-basic
+      "
+                  >
+                    {[
+                      { icon: Calendar, label: "February 25, 2026" },
+                      { icon: Clock, label: "11:00 AM" },
+                      { icon: Heart, label: "Wedding Ceremony" },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={item.label}
+                        className="flex items-center gap-3 text-center sm:text-left"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 + i * 0.15, duration: 0.5 }}
+                      >
+                        <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#c6a96d]" />
+                        <span className="text-base sm:text-lg text-[#6b2c2c]">
+                          {item.label}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </motion.section>
+
+            {/* Dress Code Section */}
+            <DressCode />
 
             {/* Footer */}
             <footer
