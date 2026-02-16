@@ -8,7 +8,7 @@ const events = [
     date: "23",
     month: "FEB",
     time: "Evening",
-    eventName: "Mehendi",
+    eventName: "Mehendi/Get-together ",
     address: "Nadipur, Pokhara",
     image: mehendiImg,
     side: "right" as const,
@@ -23,7 +23,7 @@ const events = [
     side: "left" as const,
   },
   {
-    date: "27",
+    date: "26",
     month: "FEB",
     time: "Evening",
     eventName: "Reception Party",
@@ -72,7 +72,7 @@ const DressCode = () => {
               transition={{ delay: i * 0.15, duration: 0.5 }}
             >
               {/* Left side content */}
-              <div className="w-5/12 text-right pr-6">
+              <div className="w-5/12 text-right pr-12">
                 {event.side === "left" ? (
                   <div>
                     <h3 className="text-xl md:text-2xl font-basic text-[#f5e6d3]">
@@ -130,7 +130,7 @@ const DressCode = () => {
               </div>
 
               {/* Right side content */}
-              <div className="w-5/12 text-left pl-6">
+              <div className="w-5/12 text-left pl-12">
                 {event.side === "right" ? (
                   <div>
                     <h3 className="text-xl md:text-2xl font-basic text-[#f5e6d3]">
@@ -160,16 +160,6 @@ const DressCode = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         ></motion.div>
-
-        <motion.p
-          className="mt-6 font-body text-sm italic text-muted-foreground text-[#f5e6d3]"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-        >
-          Please avoid wearing red — that's reserved for the bride
-        </motion.p>
       </motion.div>
     </section>
   );

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import waxSeal from "../assets/WaxSeal.png";
+import flowerEnvelope from "../assets/FlowerEnvelope.png";
 
 
 interface EnvelopeProps {
@@ -127,25 +129,40 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             </motion.div>
           </motion.div>
 
+          {/* Bottom Floral Decoration */}
+          <motion.img
+            src={flowerEnvelope}
+            alt="Floral Decoration"
+            className="absolute left-1/2 bottom-0 
+    -translate-x-1/2 translate-y-1/3
+    w-[120%] md:w-[110%] object-contain pointer-events-none"
+            style={{
+              zIndex: 20,
+              filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.25))",
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          />
+
           {/* Seal */}
-          <motion.div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-              w-20 h-20 rounded-full bg-[#E9C76E] shadow-lg 
-              flex items-center justify-center"
-            style={{ zIndex: 40 }}
+          <motion.img
+            src={waxSeal}
+            alt="Wax Seal"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/3 w-24 h-24 md:w-32 md:h-32 object-contain"
+            style={{
+              zIndex: 50,
+              filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.35))",
+            }}
             animate={isOpening ? { scale: 0 } : { scale: 1 }}
             transition={{ duration: 0.4 }}
-          >
-            <span className="text-[#6b2c2c] text-xl tracking-wider font-script font-bold">
-              BP
-            </span>
-          </motion.div>
+          />
         </motion.div>
 
         {/* Click Text */}
         {!isOpening && (
           <motion.p
-            className="text-center mt-10 text-md uppercase tracking-[0.4em] text-[#6b2c2c]"
+            className="text-center mt-14 text-md uppercase tracking-[0.4em] text-[#6b2c2c]"
             animate={{ opacity: [0.3, 1, 0.3] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
