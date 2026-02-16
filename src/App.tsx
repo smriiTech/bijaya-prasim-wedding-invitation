@@ -34,7 +34,7 @@ function useWindowSize() {
 
 const App: React.FC = () => {
   const [opened, setOpened] = useState<boolean>(false);
-  const weddingDate = new Date("2026-02-25T11:00:00");
+  const weddingDate = new Date("2026-02-25T00:00:00");
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
 
@@ -107,7 +107,7 @@ const App: React.FC = () => {
                   className="text-center relative z-10 text-[#6b2c2c]"
                 >
                   {/* Top small heading */}
-                  <p className="uppercase tracking-[0.4em] text-sm mb-6 font-basic">
+                  <p className="uppercase tracking-[0.4em] text-base mb-4 font-basic font-semibold">
                     The Wedding Of
                   </p>
 
@@ -122,7 +122,7 @@ const App: React.FC = () => {
                       <span className="block md:inline"> Prasim</span>
                     </h1>
 
-                    <p className="text-lg md:text-xl max-w-2xl mx-auto font-basic mb-14">
+                    <p className="text-lg md:text-xl max-w-2xl mx-auto font-basic mb-14 mt-2">
                       With profound joy and gratitude, we invite you to our
                       wedding ceremony
                     </p>
@@ -132,13 +132,16 @@ const App: React.FC = () => {
                   <div className="text-[#7b2e2e] mt-6 md:mt-12 font-basic">
                     {/* 📱 Mobile Version */}
                     <p className="block sm:hidden text-lg tracking-[0.2em]">
-                      25.FEB.2026
+                      25.FEB.2026 | AT 11 A.M.
+                    </p>
+                    <p className="sm:hidden mt-3 text-lg font-nepali">
+                      १३ फागुन २०८२ | बिहान ११ बजे
                     </p>
 
                     {/* 💻 Desktop Version */}
                     <div className="hidden sm:block space-y-8">
                       {/* Month */}
-                      <p className="uppercase tracking-[0.3em] text-xs sm:text-sm">
+                      <p className="uppercase tracking-[0.3em] text-xs sm:text-sm font-basic font-semibold">
                         February
                       </p>
 
@@ -147,7 +150,7 @@ const App: React.FC = () => {
                         {/* Left Side */}
                         <div className="flex flex-col items-center space-y-4">
                           <div className="w-32 h-px bg-[#7b2e2e]" />
-                          <p className="uppercase tracking-[0.3em] text-sm py-2">
+                          <p className="uppercase tracking-[0.3em] text-sm py-2 font-semibold">
                             Wednesday
                           </p>
                           <div className="w-32 h-px bg-[#7b2e2e]" />
@@ -161,7 +164,7 @@ const App: React.FC = () => {
                         {/* Right Side */}
                         <div className="flex flex-col items-center space-y-4">
                           <div className="w-32 h-px bg-[#7b2e2e]" />
-                          <p className="uppercase tracking-[0.3em] text-sm py-2">
+                          <p className="uppercase tracking-[0.3em] text-sm py-2 font-semibold">
                             At 11 A.M.
                           </p>
                           <div className="w-32 h-px bg-[#7b2e2e]" />
@@ -169,7 +172,11 @@ const App: React.FC = () => {
                       </div>
 
                       {/* Year */}
-                      <p className="mt-6 text-xl">2026</p>
+                      <p className="mt-6 text-xl font-semibold">2026</p>
+
+                      <p className="mt-6 text-2xl font-nepali">
+                        १३ फागुन २०८२ | बिहान ११ बजे
+                      </p>
                     </div>
                   </div>
                 </motion.div>

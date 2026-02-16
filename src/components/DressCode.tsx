@@ -9,6 +9,7 @@ const events = [
     month: "FEB",
     time: "Evening",
     eventName: "Mehendi/Get-together ",
+    dressCode: "Dress color - Yellow, Pink, & Orange",
     address: "Nadipur, Pokhara",
     image: mehendiImg,
     side: "right" as const,
@@ -25,7 +26,7 @@ const events = [
   {
     date: "26",
     month: "FEB",
-    time: "Evening",
+    // time: "Evening",
     eventName: "Reception Party",
     address: "Nadipur, Pokhara",
     image: receptionImg,
@@ -58,24 +59,23 @@ const DressCode = () => {
         <div className="relative mt-12">
           {/* Vertical line */}
           <div
-            className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
-            style={{ background: "hsl(var(--gold) / 0.4)" }}
+            className="absolute left-1/2 -translate-x-1/2 top-16 bottom-16 w-[2px] bg-[#d6b98c]"
           />
 
           {events.map((event, i) => (
             <motion.div
               key={i}
-              className="relative flex items-center mb-2 last:mb-0"
+              className="relative flex items-center mb-12 last:mb-0"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
             >
               {/* Left side content */}
-              <div className="w-5/12 text-right pr-12">
+              <div className="w-5/12 text-right pr-8 md:pr-12">
                 {event.side === "left" ? (
                   <div>
-                    <h3 className="text-xl md:text-2xl font-basic text-[#f5e6d3]">
+                    <h3 className="text-xl md:text-2xl font-basic text-[#f5e6d3] font-bold">
                       {event.eventName}
                     </h3>
                     <p className="font-body text-sm text-muted-foreground mt-1 font-basic text-[#f5e6d3]">
@@ -91,51 +91,43 @@ const DressCode = () => {
                 )}
               </div>
 
-              {/* Center date bubble */}
               {/* Center Date Box */}
-              <div className="relative z-10 flex-shrink-0 w-2/12 flex justify-center">
-                <div className="flex flex-col items-center">
-                  {/* Vertical Line (Top) */}
-                  {i !== 0 && <div className="w-px h-10 bg-[#d6b98c]" />}
+              <div className="relative z-10 w-2/12 flex justify-center">
 
-                  {/* Date Card */}
-                  <div
-                    className="w-28 md:w-32 h-32 md:h-36 rounded-2xl 
-      flex flex-col items-center justify-center 
+                {/* Date Card */}
+                <div
+                  className="w-24 md:w-32 h-28 md:h-36 rounded-2xl flex flex-col items-center justify-center 
       bg-[#f6f1ea] border border-[#e4c89a] 
       shadow-sm"
-                  >
-                    {/* Date */}
-                    <span className="font-serif text-4xl md:text-5xl text-[#6b2c2c] leading-none">
-                      {event.date}
-                      <sup className="text-sm align-super">th</sup>
-                    </span>
+                >
+                  {/* Date */}
+                  <span className="font-serif text-3xl md:text-5xl text-[#6b2c2c] leading-none">
+                    {event.date}
+                    <sup className="text-sm align-super">th</sup>
+                  </span>
 
-                    {/* Month */}
-                    <span className="uppercase tracking-[0.2em] text-sm text-[#3d2b1f] mt-2">
-                      {event.month}
-                    </span>
+                  {/* Month */}
+                  <span className="uppercase tracking-[0.2em] text-sm text-[#3d2b1f] mt-2">
+                    {event.month}
+                  </span>
 
-                    {/* Time */}
-                    <span className="italic text-sm text-[#6b4b32] mt-1">
-                      {event.time}
-                    </span>
-                  </div>
-
-                  {/* Vertical Line (Bottom) */}
-                  {i !== events.length - 1 && (
-                    <div className="w-px h-10 bg-[#d6b98c]" />
-                  )}
+                  {/* Time */}
+                  <span className="text-sm text-[#6b4b32] mt-1">
+                    {event.time}
+                  </span>
                 </div>
               </div>
 
               {/* Right side content */}
-              <div className="w-5/12 text-left pl-12">
+              <div className="w-5/12 text-left pl-8 md:pl-12">
                 {event.side === "right" ? (
                   <div>
-                    <h3 className="text-xl md:text-2xl font-basic text-[#f5e6d3]">
+                    <h3 className="text-xl md:text-2xl font-basic text-[#f5e6d3] font-bold">
                       {event.eventName}
                     </h3>
+                    <p className="font-body text-md text-muted-foreground mt-1 font-basic text-[#f5e6d3] font-medium">
+                      {event.dressCode}
+                    </p>
                     <p className="font-body text-sm text-muted-foreground mt-1 font-basic text-[#f5e6d3]">
                       {event.address}
                     </p>

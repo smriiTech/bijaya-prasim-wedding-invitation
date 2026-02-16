@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import waxSeal from "../assets/WaxSeal.png";
 import flowerEnvelope from "../assets/FlowerEnvelope.png";
 
-
 interface EnvelopeProps {
   onOpen: () => void;
 }
@@ -57,7 +56,12 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               transformStyle: "preserve-3d",
               zIndex: isOpening ? 5 : 40,
             }}
-            animate={isOpening ? { rotateX: -180 } : { rotateX: 0 }}
+            animate={{
+              rotateX: isOpening ? -180 : 0,
+              clipPath: isOpening
+                ? "polygon(0 0, 100% 0, 50% 0)" // collapsed triangle (flat)
+                : "polygon(0 0, 100% 0, 50% 100%)", // triangle
+            }}
             transition={{
               duration: 1,
               ease: [0.43, 0.13, 0.23, 0.96],
@@ -166,7 +170,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             animate={{ opacity: [0.3, 1, 0.3] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            Click to Open
+            Click the Seal to Open
           </motion.p>
         )}
       </div>

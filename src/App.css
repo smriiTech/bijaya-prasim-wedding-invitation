@@ -9,6 +9,10 @@
   font-family: 'Cormorant Garamond', 'Georgia', serif;
 }
 
+.font-nepali{
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
 /* Custom animations */
 @keyframes float {
   0%, 100% {
